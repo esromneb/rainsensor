@@ -123,6 +123,16 @@ static const char pLcdTiLogo[1024] =
 #endif
 
 
+
+
+
+
+
+
+
+
+
+
 /******************************************************************************
 * FUNCTIONS
 */
@@ -157,6 +167,70 @@ dynamic_memory_init ( void )
 	memory_block_init(NUMBER_BLOCKS_8BYTES, BYTES_SIZE_8,  (u8*)(DynamicMemoryTable + START_MEMORY_BLOCK_8BYTES) , Table_8bytes );
 }
 
+
+void blink_leds(void)
+{
+	int i;
+	for(i = 0; i < 10; i++)
+	{
+		bspLedClear(BSP_LED_2);
+		bspLedSet(BSP_LED_1);
+
+		__delay_cycles(1600000/2);
+		bspLedClear(BSP_LED_1);
+		bspLedSet(BSP_LED_2);
+
+		__delay_cycles(1600000/2);
+	}
+	bspLedClear(BSP_LED_1);
+	bspLedClear(BSP_LED_2);
+}
+
+void blink_red(void)
+{
+	int i;
+		for(i = 0; i < 10; i++)
+		{
+//			bspLedClear(BSP_LED_2);
+			bspLedSet(BSP_LED_1);
+
+			__delay_cycles(1600000/2);
+			bspLedClear(BSP_LED_1);
+//			bspLedSet(BSP_LED_2);
+
+			__delay_cycles(1600000/2);
+		}
+		bspLedClear(BSP_LED_1);
+//		bspLedClear(BSP_LED_2);
+}
+
+void blink_green(void)
+{
+	int i;
+		for(i = 0; i < 10; i++)
+		{
+			bspLedClear(BSP_LED_2);
+//			bspLedSet(BSP_LED_1);
+
+			__delay_cycles(1600000/2);
+//			bspLedClear(BSP_LED_1);
+			bspLedSet(BSP_LED_2);
+
+			__delay_cycles(1600000/2);
+		}
+//		bspLedClear(BSP_LED_1);
+		bspLedClear(BSP_LED_2);
+}
+
+void enable_water(void)
+{
+	GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN4);
+}
+
+void disable_water(void)
+{
+	GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN4);
+}
 
 /***************************************************************************//**
  *   @brief      Runs the main routine
@@ -204,25 +278,17 @@ main(void)
 	err = SfxInit();
 	assert(SFX_ERR_NONE == err);
 
+	P2DIR |= 0b00010000;  				//initialize P2.4 as output
+	enable_water();
+
+	blink_leds();
+	blink_red();
+	blink_green();
+
 	// Infinite loop
 	for(;;)
 	{
-#if defined(AT_CMD)
-		// Detect Carriage Return in the string
-		if(uartGetRxEndOfStr() == END_OF_LINE_DETECTED)
-		{
-			// Reset end of string detection
-			uartResetRxEndOfStr();
 
-			// Get the input string and its length
-			length = uartGetRxStrLength();
-			uartGetStr(cmd, length);
-
-			// Parse the string to find AT commands
-			hostCmdStatus = parseHostCmd((unsigned char *)cmd, length);
-			assert(HOST_CMD_NOT_FOUND != hostCmdStatus);
-		}
-#endif
 #if defined(PB_KEY)
 		buttonPressed = bspKeyPushed(BSP_KEY_ALL);
 
@@ -251,6 +317,14 @@ main(void)
 			{
 				// Send a bi-directional frame
 				err = SfxSendFrame(message, sizeof(message), ReceivedPayload, TRUE);
+				if(ReceivedPayload[0])
+				{
+					disable_water();
+				}
+				else
+				{
+					enable_water();
+				}
 			}
 
 			// Reset button status
