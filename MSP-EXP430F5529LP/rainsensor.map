@@ -1,7 +1,7 @@
 ******************************************************************************
                   MSP430 Linker PC v4.4.5                      
 ******************************************************************************
->> Linked Sun Nov 22 04:14:50 2015
+>> Linked Sun Nov 22 04:46:32 2015
 
 OUTPUT FILE NAME:   <rainsensor.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00004540
@@ -85,7 +85,7 @@ MEMORY CONFIGURATION
   INT61                 0000fffa   00000002  00000002  00000000  RWIX
   INT62                 0000fffc   00000002  00000002  00000000  RWIX
   RESET                 0000fffe   00000002  00000002  00000000  RWIX
-  FLASH2                00010000   00014400  00003af2  0001090e  RWIX
+  FLASH2                00010000   00014400  00003ae4  0001091c  RWIX
 
 
 SECTION ALLOCATION MAP
@@ -298,7 +298,7 @@ SYSNMI     0    0000fffc    00000002
 .reset     0    0000fffe    00000002     
                   0000fffe    00000002     rts430x_lc_rd_eabi.lib : boot.obj (.reset)
 
-.text      0    00010000    00003af2     
+.text      0    00010000    00003ae4     
                   00010000    000003c0     ti_aes_128.obj (.text:aes_enc_dec)
                   000103c0    000002e4     rts430x_lc_rd_eabi.lib : frcmpyd.obj (.text:__TI_frcmpyd)
                   000106a4    00000282                            : mpyd.obj (.text:__mspabi_mpyd)
@@ -314,151 +314,151 @@ SYSNMI     0    0000fffc    00000002
                   000115d6    000000ee     libsigfox.lib : sigfox_frame.obj (.text:ReceiveLoop)
                   000116c4    000000e0     rts430x_lc_rd_eabi.lib : setvbuf.obj (.text:setvbuf)
                   000117a4    000000d4     manufacturer_api.obj (.text:sfx_waitframe)
-                  00011878    000000cc     sigfox_demo.obj (.text:main)
-                  00011944    000000ba     rts430x_lc_rd_eabi.lib : memory.obj (.text:malloc)
-                  000119fe    000000b0     flash_drv.obj (.text:flash_write_wear_level)
-                  00011aae    000000a8     radio.obj (.text:RADIO_change_frequency)
-                  00011b56    000000a4     bsp.obj (.text:bspSysClockSpeedSet)
-                  00011bfa    0000009e     rts430x_lc_rd_eabi.lib : trgdrv.obj (.text:HOSTlseek)
-                  00011c98    0000009c     libsigfox.lib : sigfox_scramb.obj (.text:ComputeScrambling)
-                  00011d34    00000098     radio.obj (.text:RADIO_init_chip)
-                  00011dcc    00000092     manufacturer_api.obj (.text:sfx_AES_128_cbc_encrypt)
-                  00011e5e    0000008e     rts430x_lc_rd_eabi.lib : memory.obj (.text:free)
-                  00011eec    0000007e                            : _io_perm.obj (.text:__TI_wrt_ok)
-                  00011f6a    0000007c     libsigfox.lib : sigfox_hmac.obj (.text:ComputeAES)
-                  00011fe6    00000076     rts430x_lc_rd_eabi.lib : fltuld.obj (.text:__mspabi_fltuld)
-                  0001205c    00000076     sigfox_demo.obj (.text:resetCF)
-                  000120d2    00000076     hal_spi_rf_trxeb.obj (.text:trxReadWriteBurstSingle)
-                  00012148    00000074     rts430x_lc_rd_eabi.lib : trgdrv.obj (.text:HOSTrename)
-                  000121bc    00000070                            : fclose.obj (.text:__TI_closefile)
-                  0001222c    0000006e                            : trgdrv.obj (.text:HOSTopen)
-                  0001229a    0000006e     bsp.obj (.text:bspMcuSetVCoreUp)
-                  00012308    0000006e     uart_drv.obj (.text:halUartInit)
-                  00012376    0000006c     radio.obj (.text:RADIO_start_rf_carrier)
-                  000123e2    0000006c     rts430x_lc_rd_eabi.lib : autoinit_wdt.obj (.text:_auto_init_hold_wdt)
-                  0001244e    0000006a                            : trgdrv.obj (.text:HOSTwrite)
-                  000124b8    0000006a     libsigfox.lib : sigfox_bch.obj (.text:decode_bch)
-                  00012522    0000006a     flash_drv.obj (.text:flash_read_wear_level)
-                  0001258c    0000006a     rts430x_lc_rd_eabi.lib : fseek.obj (.text:fseek)
-                  000125f6    00000068                            : trgdrv.obj (.text:HOSTread)
-                  0001265e    00000068                            : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
-                  000126c6    00000068                            : fixdul.obj (.text:__mspabi_fixdul)
-                  0001272e    00000064                            : fflush.obj (.text:__TI_doflush)
-                  00012792    00000064     sigfox_demo.obj (.text:blink_leds)
-                  000127f6    00000060     libsigfox.lib : sigfox_frame.obj (.text:Switch_frequency)
-                  00012856    00000060     manufacturer_api.obj (.text:sfx_malloc)
-                  000128b6    00000060     manufacturer_api.obj (.text:sfx_send)
-                  00012916    0000005e     hal_digio2.obj (.text:halDigio2IntConnect)
-                  00012974    0000005c     libsigfox.lib : sigfox_Pn9.obj (.text:Next_Pn11)
-                  000129d0    0000005c                   : sigfox_Pn9.obj (.text:Next_Pn9)
-                  00012a2c    0000005a     radio.obj (.text:RADIO_stop_rf_carrier)
-                  00012a86    0000005a     cc112x_spi.obj (.text:cc112xSpiReadReg)
-                  00012ae0    0000005a     cc112x_spi.obj (.text:cc112xSpiWriteReg)
-                  00012b3a    0000005a     rts430x_lc_rd_eabi.lib : lowlev.obj (.text:close)
-                  00012b94    0000005a                            : lowlev.obj (.text:getdevice)
-                  00012bee    0000005a     manufacturer_api.obj (.text:sfx_free)
-                  00012c48    00000058     rts430x_lc_rd_eabi.lib : fflush.obj (.text:fflush)
-                  00012ca0    00000058     sigfox_demo.obj (.text:initMCU)
-                  00012cf8    00000058     rts430x_lc_rd_eabi.lib : div32u.obj (.text)
-                  00012d50    00000056     manufacturer_api.obj (.text:sfx_delay)
-                  00012da6    00000052     sigfox_demo.obj (.text:blink_green)
-                  00012df8    0000004c     rts430x_lc_rd_eabi.lib : trgdrv.obj (.text:HOSTclose)
-                  00012e44    0000004c     sigfox_demo.obj (.text:blink_red)
-                  00012e90    0000004a     flash_drv.obj (.text:flash_erase_segment)
-                  00012eda    0000004a     hal_digio2.obj (.text:halDigio2IntSetEdge)
-                  00012f24    00000048     hal_spi_rf_trxeb.obj (.text:trx16BitRegAccess)
-                  00012f6c    00000046     rts430x_lc_rd_eabi.lib : trgdrv.obj (.text:HOSTunlink)
-                  00012fb2    00000046     sigfox_demo.obj (.text:dynamic_memory_init)
-                  00012ff8    00000044     bsp_key.obj (.text:bspKeyPushed)
-                  0001303c    00000042     flash_drv.obj (.text:flash_write_data)
-                  0001307e    00000042     rts430x_lc_rd_eabi.lib : memory.obj (.text:minit)
-                  000130c0    0000003e                            : asr32.obj (.text:l_asr_const)
-                  000130fe    0000003e                            : lsl32.obj (.text:l_lsl_const)
-                  0001313c    0000003e                            : lsr32.obj (.text:l_lsr_const)
-                  0001317a    0000003e                            : lowlev.obj (.text:lseek)
-                  000131b8    0000003e     hal_spi_rf_trxeb.obj (.text:trxRfSpiInterfaceInit)
-                  000131f6    0000003c     rts430x_lc_rd_eabi.lib : lowlev.obj (.text:write)
-                  00013232    0000003a     hal_spi_rf_trxeb.obj (.text:trx8BitRegAccess)
-                  0001326c    00000038     circ_buf.obj (.text:circBufGetData)
-                  000132a4    00000036     rts430x_lc_rd_eabi.lib : fopen.obj (.text:__TI_cleanup)
-                  000132da    00000036                            : trgmsg.obj (.text:__TI_writemsg)
-                  00013310    00000036     circ_buf.obj (.text:circBufPutData)
-                  00013346    00000036     libsigfox.lib : sigfox_crc.obj (.text:crc16)
-                  0001337c    00000036     sigfox_demo.obj (.text:memory_block_init)
-                  000133b2    00000032     rts430x_lc_rd_eabi.lib : trgmsg.obj (.text:__TI_readmsg)
-                  000133e4    00000032     libsigfox.lib : sigfox_crc.obj (.text:crc8)
-                  00013416    00000032     rts430x_lc_rd_eabi.lib : strncpy.obj (.text:strncpy)
-                  00013448    00000030     bsp.obj (.text:bspMcuSetVCoreDown)
-                  00013478    00000030     rts430x_lc_rd_eabi.lib : lowlev.obj (.text:unlink)
-                  000134a8    0000002e     bsp.obj (.text:bspAssert)
-                  000134d6    0000002e     bsp.obj (.text:bspMcuStartXT1)
-                  00013504    0000002e     rts430x_lc_rd_eabi.lib : exit.obj (.text:exit)
-                  00013532    0000002e                            : lowlev.obj (.text:finddevice)
-                  00013560    0000002e     hal_digio2.obj (.text:halDigio2IntClear)
-                  0001358e    0000002c     rts430x_lc_rd_eabi.lib : div16s.obj (.text)
-                  000135ba    0000002a     manufacturer_api.obj (.text:free_memory_block)
-                  000135e4    0000002a     hal_digio2.obj (.text:halDigio2IntEnable)
-                  0001360e    00000028     manufacturer_api.obj (.text:sfx_get_nv_mem)
-                  00013636    00000026     bsp_key.obj (.text:bspKeyInit)
-                  0001365c    00000026     hal_spi_rf_trxeb.obj (.text:trxSpiCmdStrobe)
-                  00013682    00000024     transmission.obj (.text:Read_Bit)
-                  000136a6    00000024     bsp.obj (.text:bspMcuSetVCore)
-                  000136ca    00000024     rts430x_lc_rd_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
-                  000136ee    00000022     timer.obj (.text:TIMER_downlink_timing_init)
-                  00013710    00000022     transmission.obj (.text:TxProcess)
-                  00013732    00000022     circ_buf.obj (.text:circBufRemainder)
-                  00013754    00000022     rts430x_lc_rd_eabi.lib : mult32_f5hw.obj (.text)
-                  00013776    00000020     bsp_led.obj (.text:bspLedInit)
-                  00013796    00000020     manufacturer_api.obj (.text:sfx_init)
-                  000137b6    00000020     trx_rf_int.obj (.text:trxIsrConnect)
-                  000137d6    0000001e     bsp.obj (.text:bspInit)
-                  000137f4    0000001c     gpio.obj (.text:GPIO_setOutputHighOnPin)
-                  00013810    0000001c     gpio.obj (.text:GPIO_setOutputLowOnPin)
-                  0001382c    0000001c     manufacturer_api.obj (.text:sfx_set_nv_mem)
-                  00013848    0000001c     rts430x_lc_rd_eabi.lib : strchr.obj (.text:strchr)
-                  00013864    0000001c                            : strcmp.obj (.text:strcmp)
-                  00013880    0000001a     timer.obj (.text:TIMER_bitrate_init)
-                  0001389a    0000001a     rts430x_lc_rd_eabi.lib : assert.obj (.text:_abort_msg)
-                  000138b4    00000018     bsp_led.obj (.text:bspLedClear)
-                  000138cc    00000018     bsp_led.obj (.text:bspLedSet)
-                  000138e4    00000018     flash_drv.obj (.text:flash_read_data)
-                  000138fc    00000018     uart_drv.obj (.text:halUartStartTx)
-                  00013914    00000016     rts430x_lc_rd_eabi.lib : memchr.obj (.text:memchr)
-                  0001392a    00000016                            : memset.obj (.text:memset)
-                  00013940    00000016                            : div16u.obj (.text)
-                  00013956    00000016                            : mult16_f5hw.obj (.text)
-                  0001396c    00000016     manufacturer_api.obj (.text:sfx_get_voltage_temperature)
-                  00013982    00000016     trx_rf_int.obj (.text:trxClearIntFlag)
-                  00013998    00000016     trx_rf_int.obj (.text:trxEnableInt)
-                  000139ae    00000014     rts430x_lc_rd_eabi.lib : memcpy.obj (.text:memcpy)
-                  000139c2    00000014     manufacturer_api.obj (.text:sfx_WaitForTimeoutRx)
-                  000139d6    00000012     rts430x_lc_rd_eabi.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
-                  000139e8    00000012                            : strcpy.obj (.text:strcpy)
-                  000139fa    00000010     cc112x_spi.obj (.text:cc112xSpiReadRxFifo)
-                  00013a0a    00000010     ti_aes_128.obj (.text:galois_mul2)
-                  00013a1a    00000010     rts430x_lc_rd_eabi.lib : lsl32.obj (.text:l_lsl)
-                  00013a2a    00000010                            : lsr32.obj (.text:l_lsr)
-                  00013a3a    0000000e     timer.obj (.text:TIMER_bitrate_start)
-                  00013a48    0000000e     rts430x_lc_rd_eabi.lib : strlen.obj (.text:strlen)
-                  00013a56    0000000e     uart_drv.obj (.text:uartPutChar)
-                  00013a64    0000000c     timer.obj (.text:TIMER_bitrate_stop)
-                  00013a70    0000000c     manufacturer_api.obj (.text:sfx_StopRxTimeout)
-                  00013a7c    0000000a     sigfox_demo.obj (.text:disable_water)
-                  00013a86    0000000a     sigfox_demo.obj (.text:enable_water)
-                  00013a90    0000000a     rts430x_lc_rd_eabi.lib : lsl16.obj (.text)
-                  00013a9a    0000000a                            : lsr16.obj (.text)
-                  00013aa4    00000008     radio.obj (.text:RADIO_close_chip)
-                  00013aac    00000008     radio.obj (.text:RADIO_rx_packet_interrupt_handler)
-                  00013ab4    00000008     manufacturer_api.obj (.text:sfx_StartRxTimeout)
-                  00013abc    00000008     manufacturer_api.obj (.text:sfx_StartWaitingTimeout)
-                  00013ac4    00000008     manufacturer_api.obj (.text:sfx_change_frequency)
-                  00013acc    00000008     manufacturer_api.obj (.text:sfx_close)
-                  00013ad4    00000008     manufacturer_api.obj (.text:sfx_getrssivalue)
-                  00013adc    00000006     transmission.obj (.text:TxInit)
-                  00013ae2    00000006     rts430x_lc_rd_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
-                  00013ae8    00000004                            : pre_init.obj (.text:_system_pre_init)
-                  00013aec    00000004                            : exit.obj (.text:abort)
-                  00013af0    00000002                            : _lock.obj (.text:_nop)
+                  00011878    000000ba     rts430x_lc_rd_eabi.lib : memory.obj (.text:malloc)
+                  00011932    000000b6     sigfox_demo.obj (.text:main)
+                  000119e8    000000b0     flash_drv.obj (.text:flash_write_wear_level)
+                  00011a98    000000a8     radio.obj (.text:RADIO_change_frequency)
+                  00011b40    000000a4     bsp.obj (.text:bspSysClockSpeedSet)
+                  00011be4    0000009e     rts430x_lc_rd_eabi.lib : trgdrv.obj (.text:HOSTlseek)
+                  00011c82    0000009c     libsigfox.lib : sigfox_scramb.obj (.text:ComputeScrambling)
+                  00011d1e    00000098     radio.obj (.text:RADIO_init_chip)
+                  00011db6    00000092     manufacturer_api.obj (.text:sfx_AES_128_cbc_encrypt)
+                  00011e48    0000008e     rts430x_lc_rd_eabi.lib : memory.obj (.text:free)
+                  00011ed6    0000007e                            : _io_perm.obj (.text:__TI_wrt_ok)
+                  00011f54    0000007c     libsigfox.lib : sigfox_hmac.obj (.text:ComputeAES)
+                  00011fd0    00000076     rts430x_lc_rd_eabi.lib : fltuld.obj (.text:__mspabi_fltuld)
+                  00012046    00000076     sigfox_demo.obj (.text:resetCF)
+                  000120bc    00000076     hal_spi_rf_trxeb.obj (.text:trxReadWriteBurstSingle)
+                  00012132    00000074     rts430x_lc_rd_eabi.lib : trgdrv.obj (.text:HOSTrename)
+                  000121a6    00000070                            : fclose.obj (.text:__TI_closefile)
+                  00012216    0000006e                            : trgdrv.obj (.text:HOSTopen)
+                  00012284    0000006e     bsp.obj (.text:bspMcuSetVCoreUp)
+                  000122f2    0000006e     uart_drv.obj (.text:halUartInit)
+                  00012360    0000006c     radio.obj (.text:RADIO_start_rf_carrier)
+                  000123cc    0000006c     rts430x_lc_rd_eabi.lib : autoinit_wdt.obj (.text:_auto_init_hold_wdt)
+                  00012438    0000006a                            : trgdrv.obj (.text:HOSTwrite)
+                  000124a2    0000006a     libsigfox.lib : sigfox_bch.obj (.text:decode_bch)
+                  0001250c    0000006a     flash_drv.obj (.text:flash_read_wear_level)
+                  00012576    0000006a     rts430x_lc_rd_eabi.lib : fseek.obj (.text:fseek)
+                  000125e0    00000068                            : trgdrv.obj (.text:HOSTread)
+                  00012648    00000068                            : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
+                  000126b0    00000068                            : fixdul.obj (.text:__mspabi_fixdul)
+                  00012718    00000064                            : fflush.obj (.text:__TI_doflush)
+                  0001277c    00000064     sigfox_demo.obj (.text:blink_leds)
+                  000127e0    00000060     libsigfox.lib : sigfox_frame.obj (.text:Switch_frequency)
+                  00012840    00000060     manufacturer_api.obj (.text:sfx_malloc)
+                  000128a0    00000060     manufacturer_api.obj (.text:sfx_send)
+                  00012900    0000005e     hal_digio2.obj (.text:halDigio2IntConnect)
+                  0001295e    0000005c     libsigfox.lib : sigfox_Pn9.obj (.text:Next_Pn11)
+                  000129ba    0000005c                   : sigfox_Pn9.obj (.text:Next_Pn9)
+                  00012a16    0000005a     radio.obj (.text:RADIO_stop_rf_carrier)
+                  00012a70    0000005a     cc112x_spi.obj (.text:cc112xSpiReadReg)
+                  00012aca    0000005a     cc112x_spi.obj (.text:cc112xSpiWriteReg)
+                  00012b24    0000005a     rts430x_lc_rd_eabi.lib : lowlev.obj (.text:close)
+                  00012b7e    0000005a                            : lowlev.obj (.text:getdevice)
+                  00012bd8    0000005a     manufacturer_api.obj (.text:sfx_free)
+                  00012c32    00000058     rts430x_lc_rd_eabi.lib : fflush.obj (.text:fflush)
+                  00012c8a    00000058     sigfox_demo.obj (.text:initMCU)
+                  00012ce2    00000058     rts430x_lc_rd_eabi.lib : div32u.obj (.text)
+                  00012d3a    00000056     manufacturer_api.obj (.text:sfx_delay)
+                  00012d90    00000052     sigfox_demo.obj (.text:blink_green)
+                  00012de2    0000004c     rts430x_lc_rd_eabi.lib : trgdrv.obj (.text:HOSTclose)
+                  00012e2e    0000004c     sigfox_demo.obj (.text:blink_red)
+                  00012e7a    0000004a     flash_drv.obj (.text:flash_erase_segment)
+                  00012ec4    0000004a     hal_digio2.obj (.text:halDigio2IntSetEdge)
+                  00012f0e    00000048     hal_spi_rf_trxeb.obj (.text:trx16BitRegAccess)
+                  00012f56    00000046     rts430x_lc_rd_eabi.lib : trgdrv.obj (.text:HOSTunlink)
+                  00012f9c    00000046     sigfox_demo.obj (.text:dynamic_memory_init)
+                  00012fe2    00000044     bsp_key.obj (.text:bspKeyPushed)
+                  00013026    00000042     flash_drv.obj (.text:flash_write_data)
+                  00013068    00000042     rts430x_lc_rd_eabi.lib : memory.obj (.text:minit)
+                  000130aa    0000003e                            : asr32.obj (.text:l_asr_const)
+                  000130e8    0000003e                            : lsl32.obj (.text:l_lsl_const)
+                  00013126    0000003e                            : lsr32.obj (.text:l_lsr_const)
+                  00013164    0000003e                            : lowlev.obj (.text:lseek)
+                  000131a2    0000003e     hal_spi_rf_trxeb.obj (.text:trxRfSpiInterfaceInit)
+                  000131e0    0000003c     rts430x_lc_rd_eabi.lib : lowlev.obj (.text:write)
+                  0001321c    0000003a     hal_spi_rf_trxeb.obj (.text:trx8BitRegAccess)
+                  00013256    00000038     circ_buf.obj (.text:circBufGetData)
+                  0001328e    00000036     rts430x_lc_rd_eabi.lib : fopen.obj (.text:__TI_cleanup)
+                  000132c4    00000036                            : trgmsg.obj (.text:__TI_writemsg)
+                  000132fa    00000036     circ_buf.obj (.text:circBufPutData)
+                  00013330    00000036     libsigfox.lib : sigfox_crc.obj (.text:crc16)
+                  00013366    00000036     sigfox_demo.obj (.text:memory_block_init)
+                  0001339c    00000032     rts430x_lc_rd_eabi.lib : trgmsg.obj (.text:__TI_readmsg)
+                  000133ce    00000032     libsigfox.lib : sigfox_crc.obj (.text:crc8)
+                  00013400    00000032     rts430x_lc_rd_eabi.lib : strncpy.obj (.text:strncpy)
+                  00013432    00000030     bsp.obj (.text:bspMcuSetVCoreDown)
+                  00013462    00000030     rts430x_lc_rd_eabi.lib : lowlev.obj (.text:unlink)
+                  00013492    0000002e     bsp.obj (.text:bspAssert)
+                  000134c0    0000002e     bsp.obj (.text:bspMcuStartXT1)
+                  000134ee    0000002e     rts430x_lc_rd_eabi.lib : exit.obj (.text:exit)
+                  0001351c    0000002e                            : lowlev.obj (.text:finddevice)
+                  0001354a    0000002e     hal_digio2.obj (.text:halDigio2IntClear)
+                  00013578    0000002c     rts430x_lc_rd_eabi.lib : div16s.obj (.text)
+                  000135a4    0000002a     manufacturer_api.obj (.text:free_memory_block)
+                  000135ce    0000002a     hal_digio2.obj (.text:halDigio2IntEnable)
+                  000135f8    00000028     manufacturer_api.obj (.text:sfx_get_nv_mem)
+                  00013620    00000026     bsp_key.obj (.text:bspKeyInit)
+                  00013646    00000026     hal_spi_rf_trxeb.obj (.text:trxSpiCmdStrobe)
+                  0001366c    00000024     transmission.obj (.text:Read_Bit)
+                  00013690    00000024     bsp.obj (.text:bspMcuSetVCore)
+                  000136b4    00000024     rts430x_lc_rd_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  000136d8    00000022     timer.obj (.text:TIMER_downlink_timing_init)
+                  000136fa    00000022     transmission.obj (.text:TxProcess)
+                  0001371c    00000022     circ_buf.obj (.text:circBufRemainder)
+                  0001373e    00000022     rts430x_lc_rd_eabi.lib : mult32_f5hw.obj (.text)
+                  00013760    00000020     bsp_led.obj (.text:bspLedInit)
+                  00013780    00000020     manufacturer_api.obj (.text:sfx_init)
+                  000137a0    00000020     trx_rf_int.obj (.text:trxIsrConnect)
+                  000137c0    0000001e     bsp.obj (.text:bspInit)
+                  000137de    0000001c     gpio.obj (.text:GPIO_setOutputHighOnPin)
+                  000137fa    0000001c     gpio.obj (.text:GPIO_setOutputLowOnPin)
+                  00013816    0000001c     manufacturer_api.obj (.text:sfx_set_nv_mem)
+                  00013832    0000001c     rts430x_lc_rd_eabi.lib : strchr.obj (.text:strchr)
+                  0001384e    0000001c                            : strcmp.obj (.text:strcmp)
+                  0001386a    0000001a     timer.obj (.text:TIMER_bitrate_init)
+                  00013884    0000001a     rts430x_lc_rd_eabi.lib : assert.obj (.text:_abort_msg)
+                  0001389e    00000018     bsp_led.obj (.text:bspLedClear)
+                  000138b6    00000018     bsp_led.obj (.text:bspLedSet)
+                  000138ce    00000018     flash_drv.obj (.text:flash_read_data)
+                  000138e6    00000018     uart_drv.obj (.text:halUartStartTx)
+                  000138fe    00000016     rts430x_lc_rd_eabi.lib : memchr.obj (.text:memchr)
+                  00013914    00000016                            : memset.obj (.text:memset)
+                  0001392a    00000016                            : div16u.obj (.text)
+                  00013940    00000016                            : mult16_f5hw.obj (.text)
+                  00013956    00000016     manufacturer_api.obj (.text:sfx_get_voltage_temperature)
+                  0001396c    00000016     trx_rf_int.obj (.text:trxClearIntFlag)
+                  00013982    00000016     trx_rf_int.obj (.text:trxEnableInt)
+                  00013998    00000014     rts430x_lc_rd_eabi.lib : memcpy.obj (.text:memcpy)
+                  000139ac    00000014     manufacturer_api.obj (.text:sfx_WaitForTimeoutRx)
+                  000139c0    00000012     rts430x_lc_rd_eabi.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  000139d2    00000012                            : strcpy.obj (.text:strcpy)
+                  000139e4    00000010     cc112x_spi.obj (.text:cc112xSpiReadRxFifo)
+                  000139f4    00000010     ti_aes_128.obj (.text:galois_mul2)
+                  00013a04    00000010     rts430x_lc_rd_eabi.lib : lsl32.obj (.text:l_lsl)
+                  00013a14    00000010                            : lsr32.obj (.text:l_lsr)
+                  00013a24    0000000e     timer.obj (.text:TIMER_bitrate_start)
+                  00013a32    0000000e     sigfox_demo.obj (.text:disable_water)
+                  00013a40    0000000e     sigfox_demo.obj (.text:enable_water)
+                  00013a4e    0000000e     rts430x_lc_rd_eabi.lib : strlen.obj (.text:strlen)
+                  00013a5c    0000000e     uart_drv.obj (.text:uartPutChar)
+                  00013a6a    0000000c     timer.obj (.text:TIMER_bitrate_stop)
+                  00013a76    0000000c     manufacturer_api.obj (.text:sfx_StopRxTimeout)
+                  00013a82    0000000a     rts430x_lc_rd_eabi.lib : lsl16.obj (.text)
+                  00013a8c    0000000a                            : lsr16.obj (.text)
+                  00013a96    00000008     radio.obj (.text:RADIO_close_chip)
+                  00013a9e    00000008     radio.obj (.text:RADIO_rx_packet_interrupt_handler)
+                  00013aa6    00000008     manufacturer_api.obj (.text:sfx_StartRxTimeout)
+                  00013aae    00000008     manufacturer_api.obj (.text:sfx_StartWaitingTimeout)
+                  00013ab6    00000008     manufacturer_api.obj (.text:sfx_change_frequency)
+                  00013abe    00000008     manufacturer_api.obj (.text:sfx_close)
+                  00013ac6    00000008     manufacturer_api.obj (.text:sfx_getrssivalue)
+                  00013ace    00000006     transmission.obj (.text:TxInit)
+                  00013ad4    00000006     rts430x_lc_rd_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
+                  00013ada    00000004                            : pre_init.obj (.text:_system_pre_init)
+                  00013ade    00000004                            : exit.obj (.text:abort)
+                  00013ae2    00000002                            : _lock.obj (.text:_nop)
 
 
 LINKER GENERATED COPY TABLES
@@ -567,8 +567,8 @@ address   name
 00000732  ADC12MEM9                  
 00000733  ADC12MEM9_H                
 00000732  ADC12MEM9_L                
-00013aec  C$$EXIT                    
-0001330c  C$$IO$$                    
+00013ade  C$$EXIT                    
+000132f6  C$$IO$$                    
 000008c0  CBCTL0                     
 000008c1  CBCTL0_H                   
 000008c0  CBCTL0_L                   
@@ -597,8 +597,8 @@ address   name
 00000156  CRCRESR                    
 00000157  CRCRESR_H                  
 00000156  CRCRESR_L                  
-00011f6a  ComputeAES                 
-00011c98  ComputeScrambling          
+00011f54  ComputeAES                 
+00011c82  ComputeScrambling          
 00000510  DMA0CTL                    
 00000511  DMA0CTL_H                  
 00000510  DMA0CTL_L                  
@@ -658,15 +658,15 @@ address   name
 00000146  FCTL4                      
 00000147  FCTL4_H                    
 00000146  FCTL4_L                    
-000137f4  GPIO_setOutputHighOnPin    
-00013810  GPIO_setOutputLowOnPin     
-00012df8  HOSTclose                  
-00011bfa  HOSTlseek                  
-0001222c  HOSTopen                   
-000125f6  HOSTread                   
-00012148  HOSTrename                 
-00012f6c  HOSTunlink                 
-0001244e  HOSTwrite                  
+000137de  GPIO_setOutputHighOnPin    
+000137fa  GPIO_setOutputLowOnPin     
+00012de2  HOSTclose                  
+00011be4  HOSTlseek                  
+00012216  HOSTopen                   
+000125e0  HOSTread                   
+00012132  HOSTrename                 
+00012f56  HOSTunlink                 
+00012438  HOSTwrite                  
 000004c4  MAC                        
 000004da  MAC32H                     
 000004db  MAC32H_H                   
@@ -706,8 +706,8 @@ address   name
 000004c2  MPYS_L                     
 000004c1  MPY_H                      
 000004c0  MPY_L                      
-00012974  Next_Pn11                  
-000129d0  Next_Pn9                   
+0001295e  Next_Pn11                  
+000129ba  Next_Pn9                   
 00002834  NonVRam                    
 000004c8  OP2                        
 000004e2  OP2H                       
@@ -849,12 +849,12 @@ address   name
 0000012e  PMMRIE                     
 0000012f  PMMRIE_H                   
 0000012e  PMMRIE_L                   
-00011aae  RADIO_change_frequency     
-00013aa4  RADIO_close_chip           
-00011d34  RADIO_init_chip            
+00011a98  RADIO_change_frequency     
+00013a96  RADIO_close_chip           
+00011d1e  RADIO_init_chip            
 000113e6  RADIO_modulate             
-00012376  RADIO_start_rf_carrier     
-00012a2c  RADIO_stop_rf_carrier      
+00012360  RADIO_start_rf_carrier     
+00012a16  RADIO_stop_rf_carrier      
 00000158  RCCTL0                     
 00000159  RCCTL0_H                   
 00000158  RCCTL0_L                   
@@ -1030,18 +1030,18 @@ address   name
 00004520  TIMER0_A0_ISR              
 0000269e  TIMER0_timeout             
 0000455c  TIMER1_A0_ISR              
-00013880  TIMER_bitrate_init         
-00013a3a  TIMER_bitrate_start        
-00013a64  TIMER_bitrate_stop         
-000136ee  TIMER_downlink_timing_init 
+0001386a  TIMER_bitrate_init         
+00013a24  TIMER_bitrate_start        
+00013a6a  TIMER_bitrate_stop         
+000136d8  TIMER_downlink_timing_init 
 000027fe  Table_30bytes              
 00002822  Table_32bytes              
 00002828  Table_64bytes              
 0000282e  Table_8bytes               
 00002664  TxCF                       
 00001880  TxFrequency                
-00013adc  TxInit                     
-00013710  TxProcess                  
+00013ace  TxInit                     
+000136fa  TxProcess                  
 00002658  TxRep                      
 0000266c  TxRepeat                   
 000005d0  UCA0ABCTL                  
@@ -1294,12 +1294,12 @@ address   name
 UNDEFED   __TI_INITARRAY_Base        
 UNDEFED   __TI_INITARRAY_Limit       
 00004564  __TI_ISR_TRAP              
-000132a4  __TI_cleanup               
+0001328e  __TI_cleanup               
 0000268e  __TI_cleanup_ptr           
-000121bc  __TI_closefile             
-000139d6  __TI_decompress_none       
-00013ae2  __TI_decompress_rle24      
-0001272e  __TI_doflush               
+000121a6  __TI_closefile             
+000139c0  __TI_decompress_none       
+00013ad4  __TI_decompress_rle24      
+00012718  __TI_doflush               
 00002692  __TI_dtors_ptr             
 000103c0  __TI_frcmpyd               
 000026a6  __TI_ft_end                
@@ -1325,192 +1325,192 @@ UNDEFED   __TI_INITARRAY_Limit
 0000fff8  __TI_int60                 
 0000fffa  __TI_int61                 
 0000fffc  __TI_int62                 
-000133b2  __TI_readmsg               
+0001339c  __TI_readmsg               
 0000274e  __TI_tmpnams               
-000132da  __TI_writemsg              
-00011eec  __TI_wrt_ok                
-000136ca  __TI_zero_init             
+000132c4  __TI_writemsg              
+00011ed6  __TI_wrt_ok                
+000136b4  __TI_zero_init             
 ffffffff  __binit__                  
 ffffffff  __c_args__                 
-0001358e  __mspabi_divi              
-00013940  __mspabi_divu              
-00012cf8  __mspabi_divul             
-000126c6  __mspabi_fixdul            
-00011fe6  __mspabi_fltuld            
+00013578  __mspabi_divi              
+0001392a  __mspabi_divu              
+00012ce2  __mspabi_divul             
+000126b0  __mspabi_fixdul            
+00011fd0  __mspabi_fltuld            
 000106a4  __mspabi_mpyd              
-00013956  __mspabi_mpyi_f5hw         
-00013754  __mspabi_mpyl_f5hw         
-0001358e  __mspabi_remi              
-00013940  __mspabi_remu              
-00012cf8  __mspabi_remul             
-00013a90  __mspabi_slli              
-00013a1a  __mspabi_slll              
-00013136  __mspabi_slll_1            
-00013112  __mspabi_slll_10           
-0001310e  __mspabi_slll_11           
-0001310a  __mspabi_slll_12           
-00013106  __mspabi_slll_13           
-00013102  __mspabi_slll_14           
-000130fe  __mspabi_slll_15           
-00013132  __mspabi_slll_2            
-0001312e  __mspabi_slll_3            
-0001312a  __mspabi_slll_4            
-00013126  __mspabi_slll_5            
-00013122  __mspabi_slll_6            
-0001311e  __mspabi_slll_7            
-0001311a  __mspabi_slll_8            
-00013116  __mspabi_slll_9            
-000130f8  __mspabi_sral_1            
-000130d4  __mspabi_sral_10           
-000130d0  __mspabi_sral_11           
-000130cc  __mspabi_sral_12           
-000130c8  __mspabi_sral_13           
-000130c4  __mspabi_sral_14           
-000130c0  __mspabi_sral_15           
-000130f4  __mspabi_sral_2            
-000130f0  __mspabi_sral_3            
-000130ec  __mspabi_sral_4            
-000130e8  __mspabi_sral_5            
-000130e4  __mspabi_sral_6            
-000130e0  __mspabi_sral_7            
-000130dc  __mspabi_sral_8            
-000130d8  __mspabi_sral_9            
-00013a9a  __mspabi_srli              
-00013a2a  __mspabi_srll              
-00013174  __mspabi_srll_1            
-00013150  __mspabi_srll_10           
-0001314c  __mspabi_srll_11           
-00013148  __mspabi_srll_12           
-00013144  __mspabi_srll_13           
-00013140  __mspabi_srll_14           
-0001313c  __mspabi_srll_15           
-00013170  __mspabi_srll_2            
-0001316c  __mspabi_srll_3            
-00013168  __mspabi_srll_4            
-00013164  __mspabi_srll_5            
-00013160  __mspabi_srll_6            
-0001315c  __mspabi_srll_7            
-00013158  __mspabi_srll_8            
-00013154  __mspabi_srll_9            
-0001389a  _abort_msg                 
-000123e2  _auto_init_hold_wdt        
+00013940  __mspabi_mpyi_f5hw         
+0001373e  __mspabi_mpyl_f5hw         
+00013578  __mspabi_remi              
+0001392a  __mspabi_remu              
+00012ce2  __mspabi_remul             
+00013a82  __mspabi_slli              
+00013a04  __mspabi_slll              
+00013120  __mspabi_slll_1            
+000130fc  __mspabi_slll_10           
+000130f8  __mspabi_slll_11           
+000130f4  __mspabi_slll_12           
+000130f0  __mspabi_slll_13           
+000130ec  __mspabi_slll_14           
+000130e8  __mspabi_slll_15           
+0001311c  __mspabi_slll_2            
+00013118  __mspabi_slll_3            
+00013114  __mspabi_slll_4            
+00013110  __mspabi_slll_5            
+0001310c  __mspabi_slll_6            
+00013108  __mspabi_slll_7            
+00013104  __mspabi_slll_8            
+00013100  __mspabi_slll_9            
+000130e2  __mspabi_sral_1            
+000130be  __mspabi_sral_10           
+000130ba  __mspabi_sral_11           
+000130b6  __mspabi_sral_12           
+000130b2  __mspabi_sral_13           
+000130ae  __mspabi_sral_14           
+000130aa  __mspabi_sral_15           
+000130de  __mspabi_sral_2            
+000130da  __mspabi_sral_3            
+000130d6  __mspabi_sral_4            
+000130d2  __mspabi_sral_5            
+000130ce  __mspabi_sral_6            
+000130ca  __mspabi_sral_7            
+000130c6  __mspabi_sral_8            
+000130c2  __mspabi_sral_9            
+00013a8c  __mspabi_srli              
+00013a14  __mspabi_srll              
+0001315e  __mspabi_srll_1            
+0001313a  __mspabi_srll_10           
+00013136  __mspabi_srll_11           
+00013132  __mspabi_srll_12           
+0001312e  __mspabi_srll_13           
+0001312a  __mspabi_srll_14           
+00013126  __mspabi_srll_15           
+0001315a  __mspabi_srll_2            
+00013156  __mspabi_srll_3            
+00013152  __mspabi_srll_4            
+0001314e  __mspabi_srll_5            
+0001314a  __mspabi_srll_6            
+00013146  __mspabi_srll_7            
+00013142  __mspabi_srll_8            
+0001313e  __mspabi_srll_9            
+00013884  _abort_msg                 
+000123cc  _auto_init_hold_wdt        
 00004540  _c_int00_noargs            
 00002400  _ftable                    
 00002696  _lock                      
-00013af0  _nop                       
+00013ae2  _nop                       
 0000fffe  _reset_vector              
 00004360  _stack                     
 00002988  _sys_memory                
-00013ae8  _system_pre_init           
+00013ada  _system_pre_init           
 0000269a  _unlock                    
-00013aec  abort                      
+00013ade  abort                      
 00010000  aes_enc_dec                
 ffffffff  binit                      
-00012da6  blink_green                
-00012792  blink_leds                 
-00012e44  blink_red                  
-000134a8  bspAssert                  
-000137d6  bspInit                    
-00013636  bspKeyInit                 
-00012ff8  bspKeyPushed               
-000138b4  bspLedClear                
-00013776  bspLedInit                 
-000138cc  bspLedSet                  
-00011b56  bspSysClockSpeedSet        
-00012a86  cc112xSpiReadReg           
-000139fa  cc112xSpiReadRxFifo        
-00012ae0  cc112xSpiWriteReg          
-0001326c  circBufGetData             
-00013310  circBufPutData             
-00013732  circBufRemainder           
-00012b3a  close                      
-00013346  crc16                      
-000133e4  crc8                       
-000124b8  decode_bch                 
-00013a7c  disable_water              
+00012d90  blink_green                
+0001277c  blink_leds                 
+00012e2e  blink_red                  
+00013492  bspAssert                  
+000137c0  bspInit                    
+00013620  bspKeyInit                 
+00012fe2  bspKeyPushed               
+0001389e  bspLedClear                
+00013760  bspLedInit                 
+000138b6  bspLedSet                  
+00011b40  bspSysClockSpeedSet        
+00012a70  cc112xSpiReadReg           
+000139e4  cc112xSpiReadRxFifo        
+00012aca  cc112xSpiWriteReg          
+00013256  circBufGetData             
+000132fa  circBufPutData             
+0001371c  circBufRemainder           
+00012b24  close                      
+00013330  crc16                      
+000133ce  crc8                       
+000124a2  decode_bch                 
+00013a32  disable_water              
 00002654  doorSensor                 
 00002656  doorStatus                 
-00013a86  enable_water               
-00013504  exit                       
-00012c48  fflush                     
+00013a40  enable_water               
+000134ee  exit                       
+00012c32  fflush                     
 00008000  flash_array                
-00012e90  flash_erase_segment        
-000138e4  flash_read_data            
-00012522  flash_read_wear_level      
-0001303c  flash_write_data           
-000119fe  flash_write_wear_level     
+00012e7a  flash_erase_segment        
+000138ce  flash_read_data            
+0001250c  flash_read_wear_level      
+00013026  flash_write_data           
+000119e8  flash_write_wear_level     
 000114e6  fputs                      
-00011e5e  free                       
-0001258c  fseek                      
-00013a0a  galois_mul2                
-00013560  halDigio2IntClear          
-00012916  halDigio2IntConnect        
-000135e4  halDigio2IntEnable         
-00012eda  halDigio2IntSetEdge        
-00012308  halUartInit                
-000138fc  halUartStartTx             
+00011e48  free                       
+00012576  fseek                      
+000139f4  galois_mul2                
+0001354a  halDigio2IntClear          
+00012900  halDigio2IntConnect        
+000135ce  halDigio2IntEnable         
+00012ec4  halDigio2IntSetEdge        
+000122f2  halUartInit                
+000138e6  halUartStartTx             
 00001980  id                         
 00002660  id_ptr                     
 00001984  key                        
 0000265c  key_ptr                    
 00004a22  log_alpha                  
-0001317a  lseek                      
-00011878  main                       
-00011944  malloc                     
-00013914  memchr                     
-000139ae  memcpy                     
-0001392a  memset                     
+00013164  lseek                      
+00011932  main                       
+00011878  malloc                     
+000138fe  memchr                     
+00013998  memcpy                     
+00013914  memset                     
 00002674  message                    
-0001307e  minit                      
+00013068  minit                      
 00002862  packetSemaphore            
 00004484  port1_ISR                  
 000044d2  port2_ISR                  
 00004a42  pow_alpha                  
-00013478  remove                     
-0001205c  resetCF                    
+00013462  remove                     
+00012046  resetCF                    
 0000456a  rsbox                      
 0000257c  rx_buf                     
 00002863  rx_end_of_str              
 00002864  rx_str_length              
 0000466a  sbox                       
 000116c4  setvbuf                    
-00011dcc  sfx_AES_128_cbc_encrypt    
-00013ab4  sfx_StartRxTimeout         
-00013abc  sfx_StartWaitingTimeout    
-00013a70  sfx_StopRxTimeout          
-000139c2  sfx_WaitForTimeoutRx       
-00013ac4  sfx_change_frequency       
-00013acc  sfx_close                  
-00012d50  sfx_delay                  
-00012bee  sfx_free                   
-0001360e  sfx_get_nv_mem             
-0001396c  sfx_get_voltage_temperature
-00013ad4  sfx_getrssivalue           
-00013796  sfx_init                   
-00012856  sfx_malloc                 
-000128b6  sfx_send                   
-0001382c  sfx_set_nv_mem             
+00011db6  sfx_AES_128_cbc_encrypt    
+00013aa6  sfx_StartRxTimeout         
+00013aae  sfx_StartWaitingTimeout    
+00013a76  sfx_StopRxTimeout          
+000139ac  sfx_WaitForTimeoutRx       
+00013ab6  sfx_change_frequency       
+00013abe  sfx_close                  
+00012d3a  sfx_delay                  
+00012bd8  sfx_free                   
+000135f8  sfx_get_nv_mem             
+00013956  sfx_get_voltage_temperature
+00013ac6  sfx_getrssivalue           
+00013780  sfx_init                   
+00012840  sfx_malloc                 
+000128a0  sfx_send                   
+00013816  sfx_set_nv_mem             
 000117a4  sfx_waitframe              
 0000265a  standard                   
-00013848  strchr                     
-00013864  strcmp                     
-000139e8  strcpy                     
-00013a48  strlen                     
-00013416  strncpy                    
-00012f24  trx16BitRegAccess          
-00013232  trx8BitRegAccess           
-00013982  trxClearIntFlag            
-00013998  trxEnableInt               
-000137b6  trxIsrConnect              
-000131b8  trxRfSpiInterfaceInit      
-0001365c  trxSpiCmdStrobe            
+00013832  strchr                     
+0001384e  strcmp                     
+000139d2  strcpy                     
+00013a4e  strlen                     
+00013400  strncpy                    
+00012f0e  trx16BitRegAccess          
+0001321c  trx8BitRegAccess           
+0001396c  trxClearIntFlag            
+00013982  trxEnableInt               
+000137a0  trxIsrConnect              
+000131a2  trxRfSpiInterfaceInit      
+00013646  trxSpiCmdStrobe            
 000025b8  tx_buf                     
-00013a56  uartPutChar                
+00013a5c  uartPutChar                
 00002812  uart_rx_buf                
 000026a1  uart_state                 
 0000281a  uart_tx_buf                
-00013478  unlink                     
-000131f6  write                      
+00013462  unlink                     
+000131e0  write                      
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -2360,184 +2360,184 @@ address   name
 000114e6  fputs                      
 000116c4  setvbuf                    
 000117a4  sfx_waitframe              
-00011878  main                       
-00011944  malloc                     
-000119fe  flash_write_wear_level     
-00011aae  RADIO_change_frequency     
-00011b56  bspSysClockSpeedSet        
-00011bfa  HOSTlseek                  
-00011c98  ComputeScrambling          
-00011d34  RADIO_init_chip            
-00011dcc  sfx_AES_128_cbc_encrypt    
-00011e5e  free                       
-00011eec  __TI_wrt_ok                
-00011f6a  ComputeAES                 
-00011fe6  __mspabi_fltuld            
-0001205c  resetCF                    
-00012148  HOSTrename                 
-000121bc  __TI_closefile             
-0001222c  HOSTopen                   
-00012308  halUartInit                
-00012376  RADIO_start_rf_carrier     
-000123e2  _auto_init_hold_wdt        
-0001244e  HOSTwrite                  
-000124b8  decode_bch                 
-00012522  flash_read_wear_level      
-0001258c  fseek                      
-000125f6  HOSTread                   
-000126c6  __mspabi_fixdul            
-0001272e  __TI_doflush               
-00012792  blink_leds                 
-00012856  sfx_malloc                 
-000128b6  sfx_send                   
-00012916  halDigio2IntConnect        
-00012974  Next_Pn11                  
-000129d0  Next_Pn9                   
-00012a2c  RADIO_stop_rf_carrier      
-00012a86  cc112xSpiReadReg           
-00012ae0  cc112xSpiWriteReg          
-00012b3a  close                      
-00012bee  sfx_free                   
-00012c48  fflush                     
-00012cf8  __mspabi_divul             
-00012cf8  __mspabi_remul             
-00012d50  sfx_delay                  
-00012da6  blink_green                
-00012df8  HOSTclose                  
-00012e44  blink_red                  
-00012e90  flash_erase_segment        
-00012eda  halDigio2IntSetEdge        
-00012f24  trx16BitRegAccess          
-00012f6c  HOSTunlink                 
-00012ff8  bspKeyPushed               
-0001303c  flash_write_data           
-0001307e  minit                      
-000130c0  __mspabi_sral_15           
-000130c4  __mspabi_sral_14           
-000130c8  __mspabi_sral_13           
-000130cc  __mspabi_sral_12           
-000130d0  __mspabi_sral_11           
-000130d4  __mspabi_sral_10           
-000130d8  __mspabi_sral_9            
-000130dc  __mspabi_sral_8            
-000130e0  __mspabi_sral_7            
-000130e4  __mspabi_sral_6            
-000130e8  __mspabi_sral_5            
-000130ec  __mspabi_sral_4            
-000130f0  __mspabi_sral_3            
-000130f4  __mspabi_sral_2            
-000130f8  __mspabi_sral_1            
-000130fe  __mspabi_slll_15           
-00013102  __mspabi_slll_14           
-00013106  __mspabi_slll_13           
-0001310a  __mspabi_slll_12           
-0001310e  __mspabi_slll_11           
-00013112  __mspabi_slll_10           
-00013116  __mspabi_slll_9            
-0001311a  __mspabi_slll_8            
-0001311e  __mspabi_slll_7            
-00013122  __mspabi_slll_6            
-00013126  __mspabi_slll_5            
-0001312a  __mspabi_slll_4            
-0001312e  __mspabi_slll_3            
-00013132  __mspabi_slll_2            
-00013136  __mspabi_slll_1            
-0001313c  __mspabi_srll_15           
-00013140  __mspabi_srll_14           
-00013144  __mspabi_srll_13           
-00013148  __mspabi_srll_12           
-0001314c  __mspabi_srll_11           
-00013150  __mspabi_srll_10           
-00013154  __mspabi_srll_9            
-00013158  __mspabi_srll_8            
-0001315c  __mspabi_srll_7            
-00013160  __mspabi_srll_6            
-00013164  __mspabi_srll_5            
-00013168  __mspabi_srll_4            
-0001316c  __mspabi_srll_3            
-00013170  __mspabi_srll_2            
-00013174  __mspabi_srll_1            
-0001317a  lseek                      
-000131b8  trxRfSpiInterfaceInit      
-000131f6  write                      
-00013232  trx8BitRegAccess           
-0001326c  circBufGetData             
-000132a4  __TI_cleanup               
-000132da  __TI_writemsg              
-0001330c  C$$IO$$                    
-00013310  circBufPutData             
-00013346  crc16                      
-000133b2  __TI_readmsg               
-000133e4  crc8                       
-00013416  strncpy                    
-00013478  remove                     
-00013478  unlink                     
-000134a8  bspAssert                  
-00013504  exit                       
-00013560  halDigio2IntClear          
-0001358e  __mspabi_divi              
-0001358e  __mspabi_remi              
-000135e4  halDigio2IntEnable         
-0001360e  sfx_get_nv_mem             
-00013636  bspKeyInit                 
-0001365c  trxSpiCmdStrobe            
-000136ca  __TI_zero_init             
-000136ee  TIMER_downlink_timing_init 
-00013710  TxProcess                  
-00013732  circBufRemainder           
-00013754  __mspabi_mpyl_f5hw         
-00013776  bspLedInit                 
-00013796  sfx_init                   
-000137b6  trxIsrConnect              
-000137d6  bspInit                    
-000137f4  GPIO_setOutputHighOnPin    
-00013810  GPIO_setOutputLowOnPin     
-0001382c  sfx_set_nv_mem             
-00013848  strchr                     
-00013864  strcmp                     
-00013880  TIMER_bitrate_init         
-0001389a  _abort_msg                 
-000138b4  bspLedClear                
-000138cc  bspLedSet                  
-000138e4  flash_read_data            
-000138fc  halUartStartTx             
-00013914  memchr                     
-0001392a  memset                     
-00013940  __mspabi_divu              
-00013940  __mspabi_remu              
-00013956  __mspabi_mpyi_f5hw         
-0001396c  sfx_get_voltage_temperature
-00013982  trxClearIntFlag            
-00013998  trxEnableInt               
-000139ae  memcpy                     
-000139c2  sfx_WaitForTimeoutRx       
-000139d6  __TI_decompress_none       
-000139e8  strcpy                     
-000139fa  cc112xSpiReadRxFifo        
-00013a0a  galois_mul2                
-00013a1a  __mspabi_slll              
-00013a2a  __mspabi_srll              
-00013a3a  TIMER_bitrate_start        
-00013a48  strlen                     
-00013a56  uartPutChar                
-00013a64  TIMER_bitrate_stop         
-00013a70  sfx_StopRxTimeout          
-00013a7c  disable_water              
-00013a86  enable_water               
-00013a90  __mspabi_slli              
-00013a9a  __mspabi_srli              
-00013aa4  RADIO_close_chip           
-00013ab4  sfx_StartRxTimeout         
-00013abc  sfx_StartWaitingTimeout    
-00013ac4  sfx_change_frequency       
-00013acc  sfx_close                  
-00013ad4  sfx_getrssivalue           
-00013adc  TxInit                     
-00013ae2  __TI_decompress_rle24      
-00013ae8  _system_pre_init           
-00013aec  C$$EXIT                    
-00013aec  abort                      
-00013af0  _nop                       
+00011878  malloc                     
+00011932  main                       
+000119e8  flash_write_wear_level     
+00011a98  RADIO_change_frequency     
+00011b40  bspSysClockSpeedSet        
+00011be4  HOSTlseek                  
+00011c82  ComputeScrambling          
+00011d1e  RADIO_init_chip            
+00011db6  sfx_AES_128_cbc_encrypt    
+00011e48  free                       
+00011ed6  __TI_wrt_ok                
+00011f54  ComputeAES                 
+00011fd0  __mspabi_fltuld            
+00012046  resetCF                    
+00012132  HOSTrename                 
+000121a6  __TI_closefile             
+00012216  HOSTopen                   
+000122f2  halUartInit                
+00012360  RADIO_start_rf_carrier     
+000123cc  _auto_init_hold_wdt        
+00012438  HOSTwrite                  
+000124a2  decode_bch                 
+0001250c  flash_read_wear_level      
+00012576  fseek                      
+000125e0  HOSTread                   
+000126b0  __mspabi_fixdul            
+00012718  __TI_doflush               
+0001277c  blink_leds                 
+00012840  sfx_malloc                 
+000128a0  sfx_send                   
+00012900  halDigio2IntConnect        
+0001295e  Next_Pn11                  
+000129ba  Next_Pn9                   
+00012a16  RADIO_stop_rf_carrier      
+00012a70  cc112xSpiReadReg           
+00012aca  cc112xSpiWriteReg          
+00012b24  close                      
+00012bd8  sfx_free                   
+00012c32  fflush                     
+00012ce2  __mspabi_divul             
+00012ce2  __mspabi_remul             
+00012d3a  sfx_delay                  
+00012d90  blink_green                
+00012de2  HOSTclose                  
+00012e2e  blink_red                  
+00012e7a  flash_erase_segment        
+00012ec4  halDigio2IntSetEdge        
+00012f0e  trx16BitRegAccess          
+00012f56  HOSTunlink                 
+00012fe2  bspKeyPushed               
+00013026  flash_write_data           
+00013068  minit                      
+000130aa  __mspabi_sral_15           
+000130ae  __mspabi_sral_14           
+000130b2  __mspabi_sral_13           
+000130b6  __mspabi_sral_12           
+000130ba  __mspabi_sral_11           
+000130be  __mspabi_sral_10           
+000130c2  __mspabi_sral_9            
+000130c6  __mspabi_sral_8            
+000130ca  __mspabi_sral_7            
+000130ce  __mspabi_sral_6            
+000130d2  __mspabi_sral_5            
+000130d6  __mspabi_sral_4            
+000130da  __mspabi_sral_3            
+000130de  __mspabi_sral_2            
+000130e2  __mspabi_sral_1            
+000130e8  __mspabi_slll_15           
+000130ec  __mspabi_slll_14           
+000130f0  __mspabi_slll_13           
+000130f4  __mspabi_slll_12           
+000130f8  __mspabi_slll_11           
+000130fc  __mspabi_slll_10           
+00013100  __mspabi_slll_9            
+00013104  __mspabi_slll_8            
+00013108  __mspabi_slll_7            
+0001310c  __mspabi_slll_6            
+00013110  __mspabi_slll_5            
+00013114  __mspabi_slll_4            
+00013118  __mspabi_slll_3            
+0001311c  __mspabi_slll_2            
+00013120  __mspabi_slll_1            
+00013126  __mspabi_srll_15           
+0001312a  __mspabi_srll_14           
+0001312e  __mspabi_srll_13           
+00013132  __mspabi_srll_12           
+00013136  __mspabi_srll_11           
+0001313a  __mspabi_srll_10           
+0001313e  __mspabi_srll_9            
+00013142  __mspabi_srll_8            
+00013146  __mspabi_srll_7            
+0001314a  __mspabi_srll_6            
+0001314e  __mspabi_srll_5            
+00013152  __mspabi_srll_4            
+00013156  __mspabi_srll_3            
+0001315a  __mspabi_srll_2            
+0001315e  __mspabi_srll_1            
+00013164  lseek                      
+000131a2  trxRfSpiInterfaceInit      
+000131e0  write                      
+0001321c  trx8BitRegAccess           
+00013256  circBufGetData             
+0001328e  __TI_cleanup               
+000132c4  __TI_writemsg              
+000132f6  C$$IO$$                    
+000132fa  circBufPutData             
+00013330  crc16                      
+0001339c  __TI_readmsg               
+000133ce  crc8                       
+00013400  strncpy                    
+00013462  remove                     
+00013462  unlink                     
+00013492  bspAssert                  
+000134ee  exit                       
+0001354a  halDigio2IntClear          
+00013578  __mspabi_divi              
+00013578  __mspabi_remi              
+000135ce  halDigio2IntEnable         
+000135f8  sfx_get_nv_mem             
+00013620  bspKeyInit                 
+00013646  trxSpiCmdStrobe            
+000136b4  __TI_zero_init             
+000136d8  TIMER_downlink_timing_init 
+000136fa  TxProcess                  
+0001371c  circBufRemainder           
+0001373e  __mspabi_mpyl_f5hw         
+00013760  bspLedInit                 
+00013780  sfx_init                   
+000137a0  trxIsrConnect              
+000137c0  bspInit                    
+000137de  GPIO_setOutputHighOnPin    
+000137fa  GPIO_setOutputLowOnPin     
+00013816  sfx_set_nv_mem             
+00013832  strchr                     
+0001384e  strcmp                     
+0001386a  TIMER_bitrate_init         
+00013884  _abort_msg                 
+0001389e  bspLedClear                
+000138b6  bspLedSet                  
+000138ce  flash_read_data            
+000138e6  halUartStartTx             
+000138fe  memchr                     
+00013914  memset                     
+0001392a  __mspabi_divu              
+0001392a  __mspabi_remu              
+00013940  __mspabi_mpyi_f5hw         
+00013956  sfx_get_voltage_temperature
+0001396c  trxClearIntFlag            
+00013982  trxEnableInt               
+00013998  memcpy                     
+000139ac  sfx_WaitForTimeoutRx       
+000139c0  __TI_decompress_none       
+000139d2  strcpy                     
+000139e4  cc112xSpiReadRxFifo        
+000139f4  galois_mul2                
+00013a04  __mspabi_slll              
+00013a14  __mspabi_srll              
+00013a24  TIMER_bitrate_start        
+00013a32  disable_water              
+00013a40  enable_water               
+00013a4e  strlen                     
+00013a5c  uartPutChar                
+00013a6a  TIMER_bitrate_stop         
+00013a76  sfx_StopRxTimeout          
+00013a82  __mspabi_slli              
+00013a8c  __mspabi_srli              
+00013a96  RADIO_close_chip           
+00013aa6  sfx_StartRxTimeout         
+00013aae  sfx_StartWaitingTimeout    
+00013ab6  sfx_change_frequency       
+00013abe  sfx_close                  
+00013ac6  sfx_getrssivalue           
+00013ace  TxInit                     
+00013ad4  __TI_decompress_rle24      
+00013ada  _system_pre_init           
+00013ade  C$$EXIT                    
+00013ade  abort                      
+00013ae2  _nop                       
 ffffffff  __binit__                  
 ffffffff  __c_args__                 
 ffffffff  binit                      

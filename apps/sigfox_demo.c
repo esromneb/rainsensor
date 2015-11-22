@@ -221,12 +221,14 @@ void blink_green(void)
 
 void enable_water(void)
 {
-	GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN4);
+	GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN4);
+	blink_green();
 }
 
 void disable_water(void)
 {
-	GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN4);
+	GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN4);
+	blink_red();
 }
 
 
@@ -286,6 +288,7 @@ main(void)
 	P2DIR |= 0b00010000;  				//initialize P2.4 as output
 	enable_water();
 
+
 	blink_leds();
 	blink_red();
 	blink_green();
@@ -317,7 +320,7 @@ main(void)
 				if(buttonPressed == BSP_KEY_UP)
 				{
 					// Send uplink only frame
-					err = SfxSendFrame(message, sizeof(message), NULL, NULL);
+//					err = SfxSendFrame(message, sizeof(message), NULL, NULL);
 				}
 				else if(buttonPressed == BSP_KEY_SELECT)
 				{
