@@ -11,5 +11,4 @@
 	<createSlaveProjects value=""/>
 	<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate_msp430,"/>
 	<isTargetManual value="false"/>
-	<origin value="C:/Users/Administrator/Downloads/Factory Code/Ti_SigFox_SDK_Demo_v1_3_3"/>
 </projectOptions>

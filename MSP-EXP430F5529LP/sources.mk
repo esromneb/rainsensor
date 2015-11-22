@@ -111,6 +111,7 @@ SUBDIRS := \
 . \
 sigfox_library_api \
 manufacturer_api \
+driverlib/driverlib/MSP430F5xx_6xx \
 components/timer \
 components/targets/trxeb_msp430f5438a \
 components/radio \

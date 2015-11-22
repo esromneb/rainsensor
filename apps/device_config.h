@@ -67,7 +67,7 @@
  * \note Both interfaces can be defined simultaneously.
  */
 #define PB_KEY
-//#define AT_CMD
+#define AT_CMD
 
 /*!
  * \brief This is the value of the external oscillator connected to CC112X

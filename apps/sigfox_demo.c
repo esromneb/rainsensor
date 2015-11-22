@@ -35,6 +35,8 @@
 #include "../sigfox_library_api/sigfox.h"
 #include "../sigfox_library_api/sigfox_types.h"
 
+#include "driverlib.h"
+
 #ifdef __MSP430F5438A__
 #include "lcd_dogm128_6.h"
 #endif
@@ -44,6 +46,8 @@
  * DEFINES
  */
 
+volatile unsigned short doorSensor = 0;
+volatile unsigned short doorStatus = 0;
 
 /******************************************************************************
  * STATIC FUNCTIONS PROTOTYPES
@@ -98,7 +102,10 @@ SFX_std_t  *Standard = (SFX_std_t *)&standard;
 /*!
  * \brief Payload message for UL demo
  */
-uint8 message[12] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xAA, 0xBB, 0x00};
+uint8 message[12] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+//uint8 message[12] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xAA, 0xBB, 0xFF};
+
+
 
 /*!
  * \brief Return Payload message for DL demo
@@ -121,16 +128,6 @@ static const char pLcdTiLogo[1024] =
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x0F, 0x1F, 0x1F, 0x3F, 0x7F, 0x7F, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 };
 #endif
-
-
-
-
-
-
-
-
-
-
 
 
 /******************************************************************************
@@ -232,6 +229,7 @@ void disable_water(void)
 	GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN4);
 }
 
+
 /***************************************************************************//**
  *   @brief      Runs the main routine
  *
@@ -249,6 +247,10 @@ void disable_water(void)
 void
 main(void)
 {
+
+	WDTCTL = WDTPW + WDTHOLD;                 // Stop Watchdog Timer
+
+
 	SFX_error_t volatile err;		// error returned from sigfox api functions. (For debug purpose)
 #if defined(AT_CMD)
 	host_cmd_status_t hostCmdStatus;
@@ -265,6 +267,8 @@ main(void)
 	// Initialize MCU and Peripherals
 	initMCU();
 
+
+
 #ifdef __MSP430F5438A__
 
 	// Display welcome screen on LCD
@@ -278,6 +282,7 @@ main(void)
 	err = SfxInit();
 	assert(SFX_ERR_NONE == err);
 
+
 	P2DIR |= 0b00010000;  				//initialize P2.4 as output
 	enable_water();
 
@@ -285,94 +290,95 @@ main(void)
 	blink_red();
 	blink_green();
 
+
 	// Infinite loop
-	for(;;)
-	{
-
-#if defined(PB_KEY)
-		buttonPressed = bspKeyPushed(BSP_KEY_ALL);
-
-		// Detect button push to send the message
-		if((buttonPressed == BSP_KEY_SELECT) || (buttonPressed == BSP_KEY_UP))
+		for(;;)
 		{
-#if defined(__MSP430F5438A__)
 
-			// Update LCD
-			updateLCD();
+	#if defined(PB_KEY)
+			buttonPressed = bspKeyPushed(BSP_KEY_ALL);
 
-			// Toggle LED indicators
-			bspLedClear(BSP_LED_3);
-			bspLedClear(BSP_LED_4);
-#endif
-			bspLedClear(BSP_LED_2);
-			bspLedSet(BSP_LED_1);
-
-
-			if(buttonPressed == BSP_KEY_UP)
+			// Detect button push to send the message
+			if((buttonPressed == BSP_KEY_SELECT) || (buttonPressed == BSP_KEY_UP))
 			{
-				// Send uplink only frame
-				err = SfxSendFrame(message, sizeof(message), NULL, NULL);
-			}
-			else if(buttonPressed == BSP_KEY_SELECT)
-			{
-				// Send a bi-directional frame
-				err = SfxSendFrame(message, sizeof(message), ReceivedPayload, TRUE);
-				if(ReceivedPayload[0])
-				{
-					disable_water();
-				}
-				else
-				{
-					enable_water();
-				}
-			}
+	#if defined(__MSP430F5438A__)
 
-			// Reset button status
-			buttonPressed = 0;
+				// Update LCD
+				updateLCD();
 
-#if defined (__MSP430F5438A__)
-
-			// Clear LED1
-			bspLedClear(BSP_LED_1);
-
-			// LED indicator for sigfox API error status
-			if (err == SFX_ERR_NONE) {
-				bspLedSet(BSP_LED_3);
-			}
-			else {
-				bspLedSet(BSP_LED_4);
-			}
-
-			// Update LCD
-			updateLCD();
-
-#elif defined (__MSP430F5529__)
-
-			if (err == SFX_ERR_NONE) {
-				bspLedSet(BSP_LED_2);
-			}
-			else {
+				// Toggle LED indicators
+				bspLedClear(BSP_LED_3);
+				bspLedClear(BSP_LED_4);
+	#endif
 				bspLedClear(BSP_LED_2);
+				bspLedSet(BSP_LED_1);
+
+
+				if(buttonPressed == BSP_KEY_UP)
+				{
+					// Send uplink only frame
+					err = SfxSendFrame(message, sizeof(message), NULL, NULL);
+				}
+				else if(buttonPressed == BSP_KEY_SELECT)
+				{
+					// Send a bi-directional frame
+					err = SfxSendFrame(message, sizeof(message), ReceivedPayload, TRUE);
+					if(ReceivedPayload[0])
+					{
+						disable_water();
+					}
+					else
+					{
+						enable_water();
+					}
+				}
+
+				// Reset button status
+				buttonPressed = 0;
+
+	#if defined (__MSP430F5438A__)
+
+				// Clear LED1
+				bspLedClear(BSP_LED_1);
+
+				// LED indicator for sigfox API error status
+				if (err == SFX_ERR_NONE) {
+					bspLedSet(BSP_LED_3);
+				}
+				else {
+					bspLedSet(BSP_LED_4);
+				}
+
+				// Update LCD
+				updateLCD();
+
+	#elif defined (__MSP430F5529__)
+
+				if (err == SFX_ERR_NONE) {
+					bspLedSet(BSP_LED_2);
+				}
+				else {
+					bspLedClear(BSP_LED_2);
+				}
+	#endif
+
+				// Increment in message
+				message[11]++;
 			}
-#endif
+			else
+			{
+	#if defined (__MSP430F5438A__)
 
-			// Increment in message
-			message[11]++;
+				// Set LED2
+				bspLedSet(BSP_LED_2);
+	#elif defined (__MSP430F5529__)
+
+				// Clear LED1
+				bspLedClear(BSP_LED_1);
+	#endif	//MSP
+			}
+	#endif //INTERFACE
 		}
-		else
-		{
-#if defined (__MSP430F5438A__)
-
-			// Set LED2
-			bspLedSet(BSP_LED_2);
-#elif defined (__MSP430F5529__)
-
-			// Clear LED1
-			bspLedClear(BSP_LED_1);
-#endif	//MSP
-		}
-#endif //INTERFACE
-	}
 }
 
 
@@ -464,7 +470,7 @@ initMCU(void)
 void resetCF(void)
 {
 	// Write TxFrequency
-	if(TxFrequency == 0xFFFFFFFF || TxFrequency == 902800000 )	//if fresh from factory (0xFFFFFFFF) or 902.8 MHz (old) --> 902.2 MHz (final)
+	if(TxFrequency == 0xFFFFFFFF)
 	{
 		volatile unsigned long * Flash_ptrC;
 		Flash_ptrC = (unsigned long *) &TxFrequency;
@@ -478,7 +484,7 @@ void resetCF(void)
 		FCTL3 = FWKEY + LOCK;		// Set LOCK bit
 	}
 	// Write RxFrequency
-	if(RxFrequency == 0xFFFFFFFF || RxFrequency == 905800000 )	//if fresh from factory (0xFFFFFFFF) or 905.8 MHz (old) --> 905.2 MHz (final)
+	if(RxFrequency == 0xFFFFFFFF)
 	{
 		volatile unsigned long * Flash_ptrB;
 		Flash_ptrB = (unsigned long *) &RxFrequency;
